@@ -1,0 +1,71 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static %}
+<style>
+    #container{
+        background-color: #223656;;
+        min-width: -webkit-fill-available;
+        height: 179px;
+        border-top: groove;
+        margin-top: 8%;}
+    #myimage{
+        vertical-align: middle;
+        border-style: none;
+        max-block-size: -webkit-fill-available;
+        border-radius: 50%;
+        max-width: -webkit-fill-available;
+        height: 221px;
+        margin-top: -6%;
+        border-top: 3px solid #223656;
+        border-bottom: 3px solid #ffffff;
+        }
+    #container .image-container {
+        text-align: center;
+        vertical-align: middle;
+    }
+    #heading{
+        text-align: center;
+    margin-top: -1.55%;
+    font-size: 69px;
+    color: white;
+    -webkit-text-stroke: 2px black;
+}
+#para1,#para2,#para3{
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: larger;
+    font-style: oblique;
+    margin-top:2px;
+}
+img{
+    max-block-size: 60px;}
+
+</style>
+
+
+
+<div id="container">
+    <div class="image-container">
+        <img id="myimage" src="{% static 'images/akshatdp1.jpg' %}">
+    </div>
+
+
+    <p id="heading"> SELF.developer</p>
+
+    <div class="container1">
+        <p id="para1"><span id="hi" style="font-weight: 700;font-size: xx-large;">HI</span>, I am a self taught programmer, developer, skilled in Python/Django and programming languages including C, JAVA and PYTHON with frontends like HTML/CSS and javascript and Bootstrap library.</p>
+        <p id="para2">➥ I also know cloud technologies which include Salesforce and AWS.</p>
+        <p id="para3">➥ I am pursuing my Bachelors in Computer Science form MIET, Meerut.</p>
+    </div>
+</div >
+<div class="social mr-4" style="float:right;">
+    <ul style="list-style-type: none;">
+        <li class="mb-3"><a href="https://www.facebook.com/profile.php?id=100004164939822" target="_blank"> <img src="{% static 'images/icons8-facebook-circled.gif' %}"> </a></li>
+        <li class="mb-3"><a href="https://instagram.com/_its._.akshu_?igshid=1tbaiiw787kvf" target="_blank"> <img src="{% static 'images/instagram.png' %}"> </a></li>
+        <li class="mb-3"><a href="https://www.linkedin.com/in/akshat-jain-1a013b171" target="_blank"> <img src="{% static 'images/icons8-linkedin-circled.gif' %}"> </a></li>
+        <li class="mb-3"><a href="https://twitter.com/AkshatJ22360761?s=08" target="_blank"> <img src="{% static 'images/icons8-twitter.gif' %}"> </a></li>
+    </ul>
+</div>
+
+
+{% endblock %}

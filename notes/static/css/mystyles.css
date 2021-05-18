@@ -1,0 +1,80 @@
+
+.nav-link{color:white}
+.nav-item{}
+
+.nav-link:hover{
+    color:black;
+    background-color:white;
+    font-weight:bold;
+    border-radius:10px;
+}
+
+.transparentbox{
+    width:96%;
+    height:550px;
+    background-color:lightgrey;
+    opacity:0.8;
+}
+.transparentbox p{
+    padding-top:4%;
+    font-weight:bold;
+    font-size:60px;
+    font-family:"Monotype Corsiva";
+    color:#316142;
+    text-align:center;
+}
+
+a.btn.btn1{
+    color:white;
+    background-color:black;
+}
+
+::placeholder{
+    font-family: ui-rounded;
+}
+
+#inner{
+    padding-top: 2%;
+    font-weight: 500;
+    font-size: 28px;
+    font-family: inherit;
+    color: #000000;
+    text-align: center;
+}
+select:invalid { color: gray; }
+.text-center {
+    text-align: center!important;
+    font-family: emoji;
+    -webkit-text-stroke: #1e6960;
+    -webkit-text-stroke-width: thin;
+}
+.halfcircle{
+    height:75px;
+    margin:0px;
+    width:150px;
+    border-radius: 90px 90px 0px 0px;
+    background-color:#1e6960;
+}
+
+.halfcirclebottom{
+    height:75px;
+    margin:0px;
+    width:150px;
+    border-radius: 0px 0px 90px 90px;
+    background-color:#29b73e29;
+}
+.box1 p{
+    font-weight:bold;
+    color:black;
+    text-align:center;
+}
+
+.mydiv:hover{
+    transform:translateY(-10px)
+}
+
+li.dropdown.navbar-item.user {
+    background-color: #2fc7b5;
+    border-radius: 20px;
+}
+

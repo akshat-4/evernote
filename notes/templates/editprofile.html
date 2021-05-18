@@ -1,0 +1,72 @@
+{% extends 'user_nav.html' %}
+{% block body %}
+{% load static %}
+
+
+{% if error %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Profile successfully Updated</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <script>
+        setInterval(alertFunc, 1000);
+        function alertFunc(){window.location.href = "/profile";}
+    </script>
+{% endif %}
+
+
+<div class="container mt-5" style="max-width:60%;">
+    <h2 class="text-center">EDIT PROFILE</h2><hr>
+    <div class="row">
+        <div class="col">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <label><b>FIRST NAME :</b></label>
+                        <input type="text" class="form-control" value="{{data.user.first_name}}" name="firstname">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label><b>LAST NAME :</b></label>
+                        <input type="text" class="form-control" value="{{data.user.last_name}}" name="lastname">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-sm-12">
+                        <label><b>REGISTERED EMAIL :</b></label>
+                        <input type="email" class="form-control" value="{{data.user.username}}" name="username" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-sm-12">
+                        <label><b>CONTACT :</b></label>
+                        <input type="text" class="form-control" value="{{data.contact}}" name="contact">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <label><b>BRANCH :</b></label>
+                        <select class="form-control"  name="branch">
+                            <option value="" disabled selected hidden>{{data.branch}}</option>
+                            <option value="COMPUTER SCIENCE">COMPUTER SCIENCE</option>
+                            <option value="MECHANICAL">MECHANICAL</option>
+                            <option value="ELECTRICAL">ELECTRICAL</option>
+                            <option value="INFORMATION TECHNOLOGY">INFORMATION TECH.</option>
+                            <option value="ELECTRONICS">ELECTRONICS</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label><b>ROLE :</b></label>
+                        <input type="text" class="form-control" value="{{data.role}}"  name="role" readonly>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-success mt-2" value="UPDATE">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

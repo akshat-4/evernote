@@ -1,0 +1,73 @@
+{% extends 'user_nav.html' %}
+{%  block  body %}
+{% load static %}
+
+<style>
+  h5{
+      margin-bottom: 42px;
+  }
+
+ol {
+    list-style: none;
+    counter-reset: my-awesome-counter;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0px;
+    padding: 0px;
+    flex-direction: column;
+}
+ol li {
+    counter-increment: my-awesome-counter;
+    display: flex;
+    width: 88%;
+    margin-bottom: 2.5rem;
+    font-size: x-large;
+}
+ol li::before {
+  content: "0" counter(my-awesome-counter);
+  font-weight: bold;
+  font-size: 3rem;
+  margin-right: 0.5rem;
+  font-family: 'Abril Fatface', serif;
+  line-height: 1;
+}
+.col{    text-align: -webkit-center;}
+
+</style>
+
+<h2 class="text-center mt-3">MY PERSONAL SPACE</h2><hr>
+<div class="container mt-5">
+    <div class="row mt-3 mb-3">
+      <div class="col-sm-6">
+        <ol>
+          <li>Only you have access to your personal space.</li>
+          <li>You can store any file here by uploading it and you can mark any file as FAVOURITE.</li>
+          <li>You can manage your uploads whether edit or delete.</li>
+        </ol>
+      </div>
+
+      <div class="col-sm-6">
+          <div class="container">
+              <div class="row" style="margin-bottom: 30%;">
+                <div class="col">
+                    <a href="/personal_upload" ><button type="button" class="btn btn-warning btn-lg">UPLOAD FILES</button></a>
+                </div>
+                <div class="col">
+                    <a href="/personal_myfiles" ><button type="button" class="btn btn-warning btn-lg">&nbsp &nbsp MY FILES &nbsp &nbsp </button></a>
+                </div>
+              </div>
+
+              <div class="row" >
+                <div class="col">
+                    <a href="/personal_fav" ><button  type="button" class="btn btn-warning btn-lg">&nbsp FAVOURITES &nbsp</button></a>
+                </div>
+                <div class="col">
+                    <a href="/personal_notepad" ><button type="button" class="btn btn-warning btn-lg">&nbspMYNOTEPAD&nbsp</button></a>
+                </div>
+              </div>
+
+          </div>
+      </div>
+    </div>
+</div>
+{% endblock %}

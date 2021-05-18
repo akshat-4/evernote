@@ -1,0 +1,37 @@
+{% extends 'user_nav.html' %}
+{% block body %}
+{% load static %}
+
+<div class="container mt-5" style="max-width:60%;">
+    <h2 class="text-center">PROFILE</h2><hr>
+    <div class="row">
+        <div class="col-md-6"><b>NAME :</b></div>
+        <div class="col-md-6">{{data.user.first_name}} {{data.user.last_name}}</div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-6"><b>EMAIL :</b></div>
+        <div class="col-md-6">{{data.user.username}}</div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-6"><b>BRANCH :</b></div>
+        <div class="col-md-6">{{data.branch}}</div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-6"><b>ROLE :</b></div>
+        <div class="col-md-6">{{data.role}}</div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-6"><b>CONTACT :</b></div>
+        <div class="col-md-6">{{data.contact}}</div>
+    </div>
+    <div class="text-center">
+    <a href="/editprofile" class="btn btn-success mt-5">EDIT PROFILE</a>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block body %}
+<script>
+    $(document).ready(function () {
+        window.setTimeout(function() {
+        $(".alert").fadeTo(1000, 0).slideUp(1000, function(){
+        $(this).remove();
+        });
+        }, 2000);
+        });
+</script>
+<style>
+    .container1{
+    border:inset;border-radius:14px;
+    background-color: #5eb59733;
+    }
+</style>
+<br>
+<div class="container mt-5">
+    <h2 class="text-center mb-5">ADMIN</h2><hr>
+    <div class="row">
+        <div class="col-sm-3 text-center mydiv">
+            <div class="container1">
+                <h2 class="text-primary">{{pn}}</h2>
+                <a href="/pending_notes" class="text-dark">PENDING NOTES</a>
+            </div>
+        </div>
+        <div class="col-sm-3 text-center mydiv">
+            <div class="container1">
+                <h2 class="text-primary">{{an}}</h2>
+                <a href="/approved_notes" class="text-dark">APPROVED NOTES</a>
+            </div>
+        </div>
+        <div class="col-sm-3 text-center mydiv">
+            <div class="container1">
+                <h2 class="text-primary">{{rn}}</h2>
+                <a href="/rejected_notes" class="text-dark">REJECTED NOTES</a>
+            </div>
+        </div>
+        <div class="col-sm-3 text-center mydiv">
+            <div class="container1">
+                <h2 class="text-primary">{{alln}}</h2>
+                <a href="/all_notes" class="text-dark">TOTAL NOTES</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,147 @@
+{% extends 'user_nav.html' %}
+{% block body %}
+{% load static %}
+
+{% ifequal error 'no' %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>File Uploaded successfully</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <script>
+        $(document).ready(function () {
+        window.setTimeout(function() {
+        $(".alert").fadeTo(1000, 0).slideUp(1000, function(){
+        $(this).remove();
+        });
+        }, 2000);
+        });
+
+    </script>
+{% endifequal %}
+{% ifequal error 'yes' %}
+    <div  class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Something Went Wrong</strong>, Try again.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+{% endifequal %}
+
+
+<style>
+
+ol {
+    list-style: none;
+    counter-reset: my-awesome-counter;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0px;
+    padding: 0px;
+    flex-direction: column;
+    margin-left: 8%;
+}
+ol li {
+    counter-increment: my-awesome-counter;
+    display: flex;
+    width: 88%;
+    margin-bottom: 2.5rem;
+    font-size: x-large;
+}
+ol li::before {
+  content: "0" counter(my-awesome-counter);
+  font-weight: bold;
+  font-size: 3rem;
+  margin-right: 0.5rem;
+  font-family: 'Abril Fatface', serif;
+  line-height: 1;
+}
+
+</style>
+
+<body>
+  <div class="container mt-5 mb-5">
+        <h2 class="text-center">UPLOAD NOTES</h2><hr>
+    <div class="row">
+      <div class="col-sm-6" style="background-color: #00000012;border-radius: 20px;">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="container mt-4">
+              <div class="row" style="justify-content: space-between;">
+                  <div class="col-md-6" style="margin-left: inherit;">
+                      <div class="form-floating mb-3">
+                        <label style="font-weight:bold;" for="branch">BRANCH :</label>
+                          <select class="form-control" name="branch" id="branch">
+                            <option value="" disabled selected hidden>CHOOSE ONE..</option>
+                            <option value="COMPUTER SCIENCE">COMPUTER SCIENCE</option>
+                            <option value="MECHANICAL">MECHANICAL ENGINEERING</option>
+                            <option value="ELECTRICAL">ELECTRICAL ENGINEERING</option>
+                            <option value="INFORMATION TECHNOLOGY">INFORMATION TECH.</option>
+                            <option value="ELECTRONICS">ELECTRONICS AND COMM.</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="col-md-6" style="margin-right: inherit;">
+                      <div class="form-floating mb-3">
+                        <label style="font-weight:bold;" for="role">UPLOADING AS :</label>
+                          <select class="form-control" name="role" id="role">
+                            <option value="" disabled selected hidden>--------</option>
+                            <option value="student">Student</option>
+                            <option value="Faculty">Faculty</option>
+                          </select>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="form-floating">
+            <label style="font-weight:bold;" for="subject">SUBJECT :</label>
+            <input type="text" class="form-control" name="subject" id="subject" placeholder="Enter subject">
+          </div>
+
+
+          <div class="container mt-4">
+              <div class="row" style="justify-content: space-between;">
+                  <div class="col-md-6" style="margin-left: inherit;">
+                      <div class="form-floating mt-3">
+                        <label style="font-weight:bold;" for="notesfile">NOTES :</label>
+                        <input type="file" class="form-control" name="notesfile" id="notesfile" >
+                      </div>
+                  </div>
+                  <div class="col-md-6" style="margin-right: inherit;">
+                      <div class="form-floating mt-3">
+                        <label style="font-weight:bold;" for="filetype">FILE TYPE :</label>
+                        <select class="form-control" name="filetype" id="filetype">
+                            <option value="" disabled selected hidden>CHOOSE ONE..</option>
+                            <option value="TXT">TXT</option>
+                            <option value="DOC/DOCX">DOC/DOCX</option>
+                            <option value="PPT">PPT</option>
+                            <option value="IMAGE">IMAGE</option>
+                            <option value="PDF">PDF</option>
+                            <option value="ZIP/RAR">ZIP/RAR</option>
+                        </select>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="form-floating mt-3">
+            <label style="font-weight:bold;" for="desc">DESCRIPTION :</label>
+            <textarea class="form-control" name="desc" id="desc" placeholder=""></textarea>
+          </div>
+          <input type="submit" class="btn btn-success mt-4 mb-5" value="UPLOAD">
+        </form>
+      </div>
+      <div class="col-sm-6">
+
+        <ol>
+          <li>Notes you upload, will get an Pending status.</li>
+          <li>All other users will be able to view notes, only when accepted by admin.</li>
+          <li>Once you delete any file, it will also get deleted for other users.</li>
+        </ol>
+    </div>
+    </div>
+  </div>
+  </body>
+
+{% endblock %}

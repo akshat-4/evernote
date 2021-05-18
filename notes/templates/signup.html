@@ -1,0 +1,142 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static %}
+
+{% ifequal error 'no' %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Signup successfully</strong>, Login now !!!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <script>setInterval(alertFunc, 1000);
+        function alertFunc(){window.location.href = "/userlogin";}</script>
+{% endifequal %}
+{% ifequal error 'yes' %}
+    <div  class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Something Went Wrong</strong>, Try again.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+{% endifequal %}
+<style>
+  h5{
+      margin-bottom: 42px;
+  }
+
+ol {
+    list-style: none;
+    counter-reset: my-awesome-counter;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0px;
+    padding: 0px;
+    flex-direction: column;
+}
+ol li {
+    counter-increment: my-awesome-counter;
+    display: flex;
+    width: 88%;
+    margin-bottom: 2.5rem;
+    font-size: x-large;
+}
+ol li::before {
+  content: "0" counter(my-awesome-counter);
+  font-weight: bold;
+  font-size: 3rem;
+  margin-right: 0.5rem;
+  font-family: 'Abril Fatface', serif;
+  line-height: 1;
+}
+
+</style>
+
+<body>
+  <div class="container mt-5">
+    <div class="row">
+         <div class="col-sm-6">
+        <h2 class="text-center mb-5"> Why EVERNOTE ?</h2><hr>
+        <ol>
+          <li>Great way of handling college notes in efficient manner.</li>
+          <li>Every user also has personal space.</li>
+          <li>Support uploading and downloading any type of file.</li>
+          <li>Builtin Notepad feature for saving text files.</li>
+          <li>We provide full assurance of users security.</li>
+        </ol>
+      </div>
+
+      <div class="col-sm-6" style="background-color: #00000012;border-radius: 20px;">
+        <h2 class="text-center">REGISTER WITH US </h2>
+        <hr>
+        <form method="post">
+          {% csrf_token %}
+
+          <div class="container">
+              <div class="row" style="justify-content: space-between;">
+                  <div class="col-md-6" style="margin-left: inherit;">
+                      <div class="form-floating mb-3">
+                        <label style="font-weight:bold;" for="fname">FIRST NAME:</label>
+                        <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter First Name">
+                        </div>
+                  </div>
+                  <div class="col-md-6" style="margin-right: inherit;">
+                      <div class="form-floating mb-3">
+                        <label style="font-weight:bold;" for="lname">LAST NAME:</label>
+                        <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter Last Name">
+                        </div>
+                  </div>
+              </div>
+          </div>
+          <div class="form-floating">
+            <label style="font-weight:bold;" for="uname">USERNAME :</label>
+            <input type="text" class="form-control" name="uname" id="uname" placeholder="Enter username">
+          </div>
+          <div class="form-floating">
+            <label style="font-weight:bold;" for="email">EMAIL :</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="abc@example.com">
+          </div>
+          <div class="form-floating mt-3">
+            <label style="font-weight:bold;" for="mobile">CONTACT NUMBER :</label>
+            <input type="tel" class="form-control" name="mobile" id="mobile" placeholder="ENTER PHONE NUMBER">
+          </div>
+          <div class="container mt-3">
+              <div class="row" style="justify-content: space-between;">
+                  <div class="col-md-6" style="margin-left: inherit;">
+                      <div class="form-floating mb-3">
+                        <label style="font-weight:bold;" for="role">YOUR ROLE:</label>
+                          <select class="form-control" name="role" id="role">
+                            <option value="" disabled selected hidden>YOU ARE..</option>
+                            <option value="student">Student</option>
+                            <option value="Faculty">Faculty</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="col-md-6" style="margin-right: inherit;">
+                      <div class="form-floating mb-3">
+                        <label style="font-weight:bold;" for="branch">DEPARTMENT :</label>
+                          <select class="form-control" name="branch" id="branch">
+                            <option value="" disabled selected hidden>CHOOSE ONE..</option>
+                            <option value="COMPUTER SCIENCE">COMPUTER SCIENCE</option>
+                            <option value="MECHANICAL">MECHANICAL</option>
+                            <option value="ELECTRICAL">ELECTRICAL</option>
+                            <option value="INFORMATION TECHNOLOGY">INFORMATION TECH.</option>
+                            <option value="ELECTRONICS">ELECTRONICS</option>
+                          </select>
+                        </div>
+                  </div>
+              </div>
+          </div>
+          <div class="form-floating mt-1">
+            <label style="font-weight:bold;" for="pass1">Password:</label>
+            <input type="password" class="form-control" name="pass1" id="pass1" placeholder="Password">
+          </div>
+          <input type="submit" class="btn btn-success mt-4 mb-5" value="SIGN UP">
+        </form>
+
+      </div>
+    </div>
+  </div>
+  </body>
+
+{% endblock %}

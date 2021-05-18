@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>EVERNOTE</title>
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'css/mystyles.css' %}">
+  <style>
+    li.dropdown.navbar-item.user {
+        background-color: #2fc7b5;
+        border-radius: 20px;
+    }
+
+    .user:hover {
+        background-color: white;
+        border-radius: 20px;
+        color:black;
+        font-weight: bold;
+    }
+
+  </style>
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg" style="background-color:#1e6960 ; padding: unset;">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img src="{% static 'images/evernote.png' %}" width="50" height="50" class="d-inline-block align-top ml-3" alt="">
+      <span style="color:white; font-size:xx-large">EVERNOTE</span>
+    </a>
+    <ul class="navbar-nav " style="margin-left: 5%;font-size: larger;">
+      <li class="navbar-item">
+        <a class="nav-link mr-2" href="/profile">HOME</a>
+      </li>
+
+      <li class="navbar-item">
+        <a class="nav-link mr-2" href="/user_viewallnotes">ALL NOTES</a>
+      </li>
+      <li class="navbar-item">
+        <a class="nav-link mr-2" href="/view_mynotes">MY NOTES</a>
+      </li>
+      <li class="navbar-item">
+        <a class="nav-link mr-2" href="/uploadnotes">UPLOADS NOTES</a>
+      </li>
+      <li class="navbar-item">
+        <a class="nav-link mr-2" href="/user_personal">PERSONAL SPACE</a>
+      </li>
+      <li  class="navbar-item dropdown user" >
+          <a class="nav-link mr-2 dropdown-toggle user" href="#" data-toggle="dropdown">WELCOME <strong>{{request.user.first_name}} {{request.user.last_name}}</strong></a>
+        <div class="dropdown-menu" style="border-radius: 0px 26px 35px 25px;min-width: -webkit-fill-available;">
+          <a class="dropdown-item" href="/profile">PROFILE</a>
+          <a class="dropdown-item" href="/changepassword">CHANGE PASSWORD</a>
+          <a class="dropdown-item" href="/Logout">LOGOUT</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</body>
+</html>
+
+{% block body %}
+{% endblock %}

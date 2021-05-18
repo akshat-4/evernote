@@ -1,0 +1,43 @@
+{% extends 'user_nav.html' %}
+{%  block  body %}
+{% load static %}
+
+{% ifequal error 'no' %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>FILE UPLOADED !!!</strong>, In personal space.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <script>
+        setInterval(alertFunc, 1000);
+        function alertFunc(){window.location.href = "/user_personal";}
+    </script>
+{% endifequal %}
+{% ifequal error 'yes' %}
+    <div  class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>SOMETHING WENT WRONG  !!!</strong>, Try again.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+{% endifequal %}
+
+<div class="container mt-5" style="max-width: 60%;border-style: groove;border-radius: 37px;background-color: #80808029;">
+    <br>
+    <h2 class="text-center ">UPLOAD IN PERSONAL SPACE</h2>
+    <hr>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-floating mb-3">
+            <label style="font-weight:bold;" for="file1">ANY TYPE OF FILE :</label>
+            <input type="file" class="form-control" name="file1" id="file1">
+          </div>
+          <div class="form-floating mb-3">
+            <label style="font-weight:bold;" for="desc">DESCRIPTION :</label>
+            <textarea rows="5" class="form-control" name="desc" id="desc" placeholder="Write description here !"></textarea>
+          </div>
+          <input type="submit" class="btn btn-success mt-4 mb-5" value="UPLOAD">
+        </form>
+</div>
+{% endblock %}

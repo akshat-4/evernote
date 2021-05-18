@@ -1,0 +1,69 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static %}
+
+
+
+{% ifequal error 'no' %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Query added</strong>, you will get reply soon !!!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+{% endifequal %}
+{% ifequal error 'yes' %}
+    <div  class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Something Went Wrong</strong>, Try again.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+{% endifequal %}
+<script>
+    $(document).ready(function () {
+        window.setTimeout(function() {
+        $(".alert").fadeTo(1000, 0).slideUp(1000, function(){
+        $(this).remove();
+        });
+        }, 2000);
+        });
+  </script>
+
+
+
+
+<div class="container-sm mt-3 mb-4" style="border:outset; max-width:50%; margin: auto; background-color: #dff5d0;; border-radius:50px;">
+    <img src="{% static 'images/ques.jpeg' %}" style="height: 212px;width: 100%;  border-radius:inherit ; border-bottom: groove;">
+    <div style="max-width: 76%;margin: auto;">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-floating mt-3">
+                <label style="font-weight:bold;" for="uname">FULL NAME :</label>
+                <input type="text" class="form-control" name="uname" id="uname" placeholder="Enter name">
+              </div>
+              <div class="form-floating mt-3">
+                <label style="font-weight:bold;" for="email">REGISTERED EMAIL :</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="abc@example.com">
+              </div>
+              <div class="form-floating mt-3">
+                <label style="font-weight:bold;" for="mobile">CONTACT NUMBER :</label>
+                <input type="tel" class="form-control" name="mobile" id="mobile" placeholder="Enter Contact">
+              </div>
+              <div class="form-floating mt-3">
+                <label style="font-weight:bold;" for="desc">YOUR QUERY :</label>
+                <textarea class="form-control" name="desc" id="desc" placeholder="Please let us know your feedback/complaint..."></textarea>
+              </div>
+            <input type="submit" class="btn btn-success mt-4 mb-5" value="SUBMIT">
+        </form>
+    </div>
+</div>
+
+
+  <footer>
+    <div style="left: 0;width: 100%;background-color: #1e6960;text-align: center;position:absolute;">
+        <div style="color:white;font-size: large;font-family: sans-serif;" class="text-center py-2">© 2021 Copyright</div>
+    </div>
+  </footer>
+
+{% endblock %}

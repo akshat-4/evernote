@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>EVERNOTE</title>
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'css/mystyles.css' %}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg" style="background-color:#1e6960 ; padding: unset;">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img src="{% static 'images/evernote.png' %}" width="50" height="50" class="d-inline-block align-top ml-3" alt="">
+      <span style="color:white; font-size:xx-large">EVERNOTE</span>
+    </a>
+    <ul class="navbar-nav " style="margin-left: 18%;font-size: larger;">
+      <li class="navbar-item">
+        <a class="nav-link mr-2" href="/admin_home">HOME</a>
+      </li>
+      <li class="navbar-item dropdown">
+        <a class="nav-link mr-2 dropdown-toggle" href="#" data-toggle="dropdown">VIEW NOTES</a>
+        <div class="dropdown-menu" style="border-radius: 0px 26px 35px 25px;min-width: -webkit-fill-available;">
+          <a class="dropdown-item" href="/pending_notes">PENDING</a>
+          <a class="dropdown-item" href="/rejected_notes">REJECTED</a>
+          <a class="dropdown-item" href="/approved_notes">APPROVED</a>
+          <a class="dropdown-item" href="/all_notes">ALL NOTES</a>
+        </div>
+      </li>
+      <li class="navbar-item">
+        <a class="nav-link mr-2" href="/viewusers">VIEW USERS</a>
+      </li>
+      <li class="navbar-item">
+        <a class="nav-link mr-2" href="/Logout">LOGOUT</a>
+      </li>
+    </ul>
+  </nav>
+</body>
+</html>
+
+{% block body %}
+{% endblock %}
